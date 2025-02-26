@@ -14,8 +14,7 @@ extends CharacterBody2D
 @onready var label = $CanvasLayer2/lbl
 @onready var fondo_label = $CanvasLayer2/fondo
 @onready var ani_player = $ani_palyer
-# Referencia al contador
-@onready var contador: Control = $CanvasLayer/contador
+@onready var contador: Control = $CanvasLayer/contador # Referencia al contador
 @onready var posicion_inicial = position  # Guarda la posición de inicio
 
 # Contador de monedas
