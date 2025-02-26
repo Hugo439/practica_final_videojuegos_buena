@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @export var gravity_scale = 2
-@export var speed = 500
-@export var acceleration = 600
-@export var friction = 3000
+@export var speed = 400
+@export var acceleration = 800
+@export var friction = 5000
 @export var jump_force = -700
-@export var air_acceleration = 2000
-@export var air_friction = 900
+@export var air_acceleration = 2500
+@export var air_friction = 1200
 @export var contador_scene: PackedScene # Arrastra la escena "contador.tscn" en el editor
 @export var monedas_máximas = 3
 
@@ -61,9 +61,10 @@ func handle_acceleration(input_axis, delta):
 		velocity.x = move_toward(velocity.x, speed*input_axis, acceleration*delta)
 
 
-func apply_friction(input_axis, delta):
-	if input_axis==0 and is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, friction*delta)
+func apply_friction(input_axis: float, delta: float) -> void:
+	if is_on_floor():
+		var objetivo_velocidad: float = 0.0 if input_axis == 0 else velocity.x
+		velocity.x = move_toward(velocity.x, objetivo_velocidad, friction * delta * 0.5)
 
 
 func handle_jump():
@@ -141,7 +142,8 @@ func control_vidas():
 
 		# Esperar 3 segundos y reiniciar el nivel
 		await get_tree().create_timer(3.0).timeout
-		get_tree().reload_current_scene()
+		# Cargar la escena del menú
+		get_tree().change_scene_to_file("res://menu/menu.tscn")  
 	else:
 		# Si aún tiene vidas, volver a la posición inicial
 		position = posicion_inicial

@@ -271,7 +271,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("56_vyxor")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -300,9 +300,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("64_1tkfp")
 }],
-"loop": true,
+"loop": false,
 "name": &"run",
-"speed": 6.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -335,13 +335,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5m3i"]
-size = Vector2(27, 48)
+size = Vector2(26, 45)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e7tbv"]
 font_size = 40
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(2, 0)
+position = Vector2(6, -2)
 script = ExtResource("1_bieoa")
 contador_scene = ExtResource("74_vb8yj")
 metadata/_edit_group_ = true
@@ -349,17 +349,18 @@ metadata/_edit_group_ = true
 [node name="ani_palyer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yep2i")
 animation = &"run"
-frame_progress = 0.761643
+frame = 7
+frame_progress = 1.0
 metadata/_edit_group_ = true
 
 [node name="col_player" type="CollisionShape2D" parent="."]
-position = Vector2(-20.5, 23)
+position = Vector2(-21, 21.5)
 shape = SubResource("RectangleShape2D_m5m3i")
 
 [node name="cam_player" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
-limit_bottom = 648
+limit_bottom = 640
 limit_smoothed = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
