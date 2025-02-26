@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=4 uid="uid://2qppcer26uq7"]
+
+[ext_resource type="PackedScene" uid="uid://bvlk18optbar5" path="res://player/player.tscn" id="1_oriea"]
+[ext_resource type="PackedScene" uid="uid://cri6qo6h1wpyx" path="res://environment/floor.tscn" id="2_4qjg7"]
+[ext_resource type="PackedScene" path="res://fondo/fondo.tscn" id="3_lf5wk"]
+[ext_resource type="PackedScene" uid="uid://dmtyyn47y5ns0" path="res://coleccionable/coleccionable.tscn" id="4_pas87"]
+[ext_resource type="PackedScene" uid="uid://dk7f5yf0yjini" path="res://ene_static/pinchos.tscn" id="5_1qmy5"]
+[ext_resource type="PackedScene" uid="uid://3dgfvx12phf6" path="res://ene_static/stalagmite.tscn" id="6_k2k7j"]
+
+[node name="Environment" type="Node2D"]
+position = Vector2(48, -48)
+
+[node name="player" parent="." instance=ExtResource("1_oriea")]
+position = Vector2(16, 513)
+
+[node name="floor" parent="." instance=ExtResource("2_4qjg7")]
+position = Vector2(-48, 112)
+tile_map_data = PackedByteArray("AAD//wMAEgAAAAAAAAD//wQAEgAAAAAAAAD//wUAEgAAAAAAAAD//wYAEgAAAAAAAAD//wcAEgAAAAAAAAD//wgAEgAAAAAAAAD//wkAEgAAAAAAAAD//woAEgAAAAAAAAAAAAgADwAAAAAAAAAAAAkAEgAAAAAAAAAAAAoAEgAAAAAAAAABAAgADwAAAAAAAAABAAkAEgAAAAAAAAABAAoAEgAAAAAAAAACAAgADwAAAAAAAAACAAkAEgAAAAAAAAACAAoAEgAAAAAAAAADAAgADwAAAAAAAAADAAkAEgAAAAAAAAADAAoAEgAAAAAAAAAEAAgADwAAAAAAAAAEAAkAEgAAAAAAAAAEAAoAEgAAAAAAAAAFAAgADwAAAAAAAAAFAAkAEgAAAAAAAAAFAAoAEgAAAAAAAAAGAAgADwAAAAAAAAAGAAkAEgAAAAAAAAAGAAoAEgAAAAAAAAAHAAgADwAAAAAAAAAHAAkAEgAAAAAAAAAHAAoAEgAAAAAAAAAIAAgADwAAAAAAAAAIAAkAEgAAAAAAAAAIAAoAEgAAAAAAAAAJAAYALgAAAAAAAAAJAAgAAgAAAAAAAAAJAAkAAQAAAAAAAAAJAAoAEgAAAAAAAAAKAAYALwAAAAAAAAAKAAgAAgAAAAAAAAAKAAkAAQAAAAAAAAAKAAoAEgAAAAAAAAALAAgADwAAAAAAAAALAAkAEgAAAAAAAAALAAoAEgAAAAAAAAAMAAcALwAAAAAAAAAMAAgADwAAAAAAAAAMAAkAEgAAAAAAAAAMAAoAEgAAAAAAAAANAAUALgAAAAAAAAANAAgADwAAAAAAAAANAAkAEgAAAAAAAAANAAoAEgAAAAAAAAAOAAgADwAAAAAAAAAOAAkAEgAAAAAAAAAOAAoAEgAAAAAAAAAPAAgADwAAAAAAAAAPAAkAEgAAAAAAAAAPAAoAEgAAAAAAAAAQAAgADwAAAAAAAAAQAAkAEgAAAAAAAAAQAAoAEgAAAAAAAAARAAgAAgAAAAAAAAARAAkAAQAAAAAAAAARAAoAEgAAAAAAAAASAAoAEgAAAAAAAAATAAgAAgAAAAAAAAATAAkAAQAAAAAAAAATAAoAEgAAAAAAAAAUAAgAAgAAAAAAAAAUAAkAAQAAAAAAAAAUAAoAEgAAAAAAAAAVAAoAEgAAAAAAAAAWAAgADwAAAAAAAAAWAAkAEgAAAAAAAAAWAAoAEgAAAAAAAAAXAAgADwAAAAAAAAAXAAkAEgAAAAAAAAAXAAoAEgAAAAAAAAAYAAgADwAAAAAAAAAYAAkAEgAAAAAAAAAYAAoAEgAAAAAAAAAZAAgADwAAAAAAAAAZAAkAEgAAAAAAAAAZAAoAEgAAAAAAAAAaAAgAEgAAAAAAAAAaAAkAEgAAAAAAAAAaAAoAEgAAAAAAAAAbAAgADwAAAAAAAAAbAAkAEgAAAAAAAAAbAAoAEgAAAAAAAAAcAAgADwAAAAAAAAAcAAkAEgAAAAAAAAAcAAoAEgAAAAAAAAAdAAgADwAAAAAAAAAdAAkAEgAAAAAAAAAdAAoAEgAAAAAAAAAeAAgADwAAAAAAAAAeAAkAEgAAAAAAAAAeAAoAEgAAAAAAAAAfAAgADwAAAAAAAAAfAAkAEgAAAAAAAAAfAAoAEgAAAAAAAAD//wIAEgAAAAAAAAD//wAAEgAAAAAAAAD//wEAEgAAAAAAAAAaAAcAMQAAAAAAADASAAgAAgAAAAAAAAASAAkAAQAAAAAAAAAVAAgAAgAAAAAAAAAVAAkAAQAAAAAAAAASAAUADwAAAAAAAAASAAYAGAAAAAAAAAASAAcAFgAAAAAAAAATAAUADwAAAAAAAAATAAYAEgAAAAAAAAATAAcAHgAAAAAAAAAUAAUADwAAAAAAAAAUAAYAFwAAAAAAAAAUAAcAFAAAAAAAAAAPAAUALwAAAAAAAAD/////EgAAAAAAAAAgAAoAEgAAAAAAAAAgAAgADwAAAAAAAAAgAAkAEgAAAAAAAAAhAAgADwAAAAAAAAAhAAkAEgAAAAAAAAAhAAoAEgAAAAAAAAAiAAgADwAAAAAAAAAiAAkAEgAAAAAAAAAiAAoAEgAAAAAAAAAjAAgADwAAAAAAAAAjAAkAEgAAAAAAAAAjAAoAEgAAAAAAAAAOAAUAKAAAAAAAAAA=")
+
+[node name="fondo" parent="." instance=ExtResource("3_lf5wk")]
+
+[node name="monedas" type="Node2D" parent="."]
+
+[node name="moneda1" parent="monedas" instance=ExtResource("4_pas87")]
+position = Vector2(706, 388)
+
+[node name="moneda2" parent="monedas" instance=ExtResource("4_pas87")]
+position = Vector2(901, 596)
+
+[node name="moneda3" parent="monedas" instance=ExtResource("4_pas87")]
+position = Vector2(1931, 584)
+
+[node name="pinchos" type="Node2D" parent="."]
+
+[node name="pinchos1" parent="pinchos" instance=ExtResource("5_1qmy5")]
+position = Vector2(593, 731)
+
+[node name="pinchos2" parent="pinchos" instance=ExtResource("5_1qmy5")]
+position = Vector2(1294, 727)
+
+[node name="pinchos3" parent="pinchos" instance=ExtResource("5_1qmy5")]
+position = Vector2(1111, 731)
+
+[node name="stalagmites" type="Node2D" parent="."]
+
+[node name="stalagmite1" parent="stalagmites" instance=ExtResource("6_k2k7j")]
+position = Vector2(1630, 584)

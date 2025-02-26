@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsyg2yq3uipcm"]
+
+[ext_resource type="Script" path="res://contador/contador.gd" id="2_bc40h"]
+
+[sub_resource type="GDScript" id="GDScript_r63ns"]
+script/source = "extends Sprite2D
+
+
+func actualizar(monedas:int):
+	$hbox/lbl_contador.text = str(monedas)
+"
+
+[node name="contador" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_bc40h")
+
+[node name="hbox" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 1.0
+offset_right = 99.0
+offset_bottom = 56.0
+
+[node name="lbl_contador" type="Label" parent="hbox"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="imagen" type="Sprite2D" parent="hbox"]
+position = Vector2(23, 11)
+scale = Vector2(1.0625, 1.03125)
+centered = false
+script = SubResource("GDScript_r63ns")

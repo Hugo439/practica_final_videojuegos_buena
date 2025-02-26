@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://bofipk8g7hphd"]
+
+[ext_resource type="AudioStream" uid="uid://dss5ggibtpok4" path="res://menu/audio_menu.mp3" id="1_bblkx"]
+[ext_resource type="Script" path="res://menu/menu.gd" id="1_tfems"]
+[ext_resource type="Texture2D" uid="uid://d2yjr1upu8eyl" path="res://menu/fondo_menu.jpg" id="2_af7k1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_36em4"]
+font_size = 25
+
+[sub_resource type="FontFile" id="FontFile_u341i"]
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_262gh"]
+font = SubResource("FontFile_u341i")
+font_size = 31
+outline_size = 20
+outline_color = Color(1, 0.00392157, 0.00392157, 1)
+shadow_size = 10
+shadow_color = Color(0.901961, 0, 0, 0)
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfems")
+
+[node name="audio_menu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_bblkx")
+volume_db = -14.857
+autoplay = true
+parameters/looping = true
+
+[node name="sprite_menu" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.597396, 0.597222)
+texture = ExtResource("2_af7k1")
+centered = false
+
+[node name="vbox_menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 483.0
+offset_right = 369.0
+offset_bottom = 594.0
+scale = Vector2(1, 1.04)
+alignment = 2
+
+[node name="lbl_opciones" type="Label" parent="vbox_menu"]
+layout_mode = 2
+text = "Opciones:
+"
+label_settings = SubResource("LabelSettings_36em4")
+
+[node name="btn_start" type="Button" parent="vbox_menu"]
+layout_mode = 2
+text = "Start
+"
+
+[node name="btn_exit" type="Button" parent="vbox_menu"]
+layout_mode = 2
+text = "Exit"
+
+[node name="lbl_titulo_menu" type="Label" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 434.0
+offset_right = 418.0
+offset_bottom = 487.0
+text = "La Mazmorra del Destino"
+label_settings = SubResource("LabelSettings_262gh")
+
+[connection signal="pressed" from="vbox_menu/btn_start" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="vbox_menu/btn_exit" to="." method="_on_btn_end_pressed"]
