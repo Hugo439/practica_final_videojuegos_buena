@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://crby1lhdm43wk"]
+
+[ext_resource type="Texture2D" uid="uid://cdkno20np7f6l" path="res://decoration/img/Details/chest.png" id="1_2ey57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0axg0"]
+size = Vector2(32, 18)
+
+[node name="chest" type="Area2D"]
+
+[node name="spr_chest" type="Sprite2D" parent="."]
+texture = ExtResource("1_2ey57")
+
+[node name="col_chest" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0axg0")

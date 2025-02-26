@@ -13,7 +13,7 @@ extends CharacterBody2D
 @onready var canvas_layer = $CanvasLayer
 @onready var label = $CanvasLayer2/lbl
 @onready var fondo_label = $CanvasLayer2/fondo
-@onready var ani_player = $ani_palyer
+@onready var ani_player = $ani_player
 @onready var contador: Control = $CanvasLayer/contador # Referencia al contador
 @onready var posicion_inicial = position  # Guarda la posición de inicio
 
@@ -89,7 +89,6 @@ func update_animation(input_axis):
 	else:
 		ani_player.speed_scale=1
 		ani_player.play("idle")
-
 
 # Función para agregar monedas y actualizar el contador correspondiente
 func add_moneda():

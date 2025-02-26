@@ -346,7 +346,7 @@ script = ExtResource("1_bieoa")
 contador_scene = ExtResource("74_vb8yj")
 metadata/_edit_group_ = true
 
-[node name="ani_palyer" type="AnimatedSprite2D" parent="."]
+[node name="ani_player" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yep2i")
 animation = &"run"
 frame = 7

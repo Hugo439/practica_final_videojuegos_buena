@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rnpxx3lhihos"]
+
+[ext_resource type="Texture2D" uid="uid://desx0gp23alw2" path="res://decoration/img/Details/torch1_1.png" id="1_7ot40"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qg6op"]
+radius = 16.0
+
+[node name="antorcha" type="Area2D"]
+
+[node name="spr_antorcha" type="Sprite2D" parent="."]
+texture = ExtResource("1_7ot40")
+
+[node name="col_antorcha" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qg6op")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://q8idjsq50uwv"]
+
+[ext_resource type="Texture2D" uid="uid://5vkl7o4mla73" path="res://decoration/img/Details/lava_drop3_1.png" id="1_nvok3"]
+[ext_resource type="Texture2D" uid="uid://b1s4tef12objc" path="res://decoration/img/Details/lava_drop3_2.png" id="2_2e8ce"]
+[ext_resource type="Texture2D" uid="uid://72vynmofjh1b" path="res://decoration/img/Details/lava_drop3_3.png" id="3_hk467"]
+[ext_resource type="Texture2D" uid="uid://c0ica6bna2pse" path="res://decoration/img/Details/lava_drop3_4.png" id="4_8a33s"]
+[ext_resource type="Texture2D" uid="uid://i7uwtgl2ccgx" path="res://decoration/img/Details/lava_drop3_5.png" id="5_ilaba"]
+[ext_resource type="Texture2D" uid="uid://diqpleoyr8hif" path="res://decoration/img/Details/lava_drop3_6.png" id="6_1xa8v"]
+[ext_resource type="Texture2D" uid="uid://bg042gwfb2s1e" path="res://decoration/img/Details/lava_drop3_7.png" id="7_rjqie"]
+[ext_resource type="Texture2D" uid="uid://dlnqxkws1lfn5" path="res://decoration/img/Details/lava_drop3_8.png" id="8_pyfh7"]
+[ext_resource type="Texture2D" uid="uid://1ljor7iko8da" path="res://decoration/img/Details/lava_drop3_9.png" id="9_6hc3b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8dpv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nvok3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2e8ce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hk467")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8a33s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ilaba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1xa8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rjqie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pyfh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6hc3b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gh65j"]
+
+[node name="lava_pequenia" type="Area2D"]
+
+[node name="spr_lava_pequenia" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k8dpv")
+frame_progress = 0.33707
+
+[node name="col_lava_pequenia" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gh65j")

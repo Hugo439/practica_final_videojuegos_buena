@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh5ce6dwmjdik"]
+
+[ext_resource type="Texture2D" uid="uid://dva41iki1ocx1" path="res://decoration/img/Details/bridge1.png" id="1_2r1gu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0ueo"]
+size = Vector2(34, 20)
+
+[node name="bridge_left" type="Area2D"]
+
+[node name="spr_bridge_left" type="Sprite2D" parent="."]
+texture = ExtResource("1_2r1gu")
+
+[node name="col_bridge_left" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c0ueo")
