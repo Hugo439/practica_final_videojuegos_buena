@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 @export var gravity_scale = 2
-@export var speed = 400
-@export var acceleration = 800
+@export var speed = 300
+@export var acceleration = 400
 @export var friction = 5000
 @export var jump_force = -700
 @export var air_acceleration = 2500
 @export var air_friction = 1200
 @export var contador_scene: PackedScene # Arrastra la escena "contador.tscn" en el editor
-@export var monedas_máximas = 3
+@export var monedas_máximas = 5
 
 @onready var canvas_layer = $CanvasLayer
 @onready var label = $CanvasLayer2/lbl
@@ -111,7 +111,8 @@ func control_monedas():
 
 		# Esperar 3 segundos y reiniciar el nivel
 		await get_tree().create_timer(3.0).timeout
-		get_tree().reload_current_scene()
+		# Cargar la escena del menú
+		get_tree().change_scene_to_file("res://menu/menu.tscn") 
 
 # Función para quitar vidas y actualizar el contador correspondiente
 func quitar_vida():
