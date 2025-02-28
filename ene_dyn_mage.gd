@@ -2,12 +2,12 @@ extends CharacterBody2D
 
 @onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 @export var speed = 100
-
+@onready var ani_ene_dyn = $ani_ene_dyn
 # Variable para indicar si vamos hacia delante (1) o atrás (-1)
 var sentido = 1
 
 func _ready() -> void:
-	$ani_ene_dyn.play("walk")
+	ani_ene_dyn.play("walk")
 
 
 func _on_ene_area_body_entered(body: Node2D) -> void:
