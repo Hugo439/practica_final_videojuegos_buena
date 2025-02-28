@@ -8,12 +8,14 @@ extends CharacterBody2D
 @export var air_acceleration = 2500
 @export var air_friction = 1200
 @export var contador_scene: PackedScene # Arrastra la escena "contador.tscn" en el editor
-@export var monedas_máximas = 5
+@export var monedas_máximas = 7
 
 @onready var canvas_layer = $CanvasLayer
 @onready var label = $CanvasLayer2/lbl
 @onready var fondo_label = $CanvasLayer2/fondo
 @onready var ani_player = $ani_player
+@onready var tiempo = $Timer
+@onready var audio_muerte = $audio_player
 @onready var contador: Control = $CanvasLayer/contador # Referencia al contador
 @onready var posicion_inicial = position  # Guarda la posición de inicio
 
@@ -119,10 +121,12 @@ func quitar_vida():
 	vidas -= 1
 	if contadores.has("vidas"):
 		contadores["vidas"].actualizar(vidas)
-	# Efecto de parpadeo cuando pierde vida
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate", rojo, 0.2)  # Rojo
-	tween.tween_property(self, "modulate", blanco, 0.2)  # Normal
+		# desactivo las físicas
+	set_physics_process(false)
+	ani_player.play("death")
+	audio_muerte.play()
+	tiempo.start()
+	await tiempo.timeout
 	control_vidas()
 
 # Función que controla cuando el jugador llega a 0 vidas
@@ -145,7 +149,12 @@ func control_vidas():
 		get_tree().change_scene_to_file("res://menu/menu.tscn")  
 	else:
 		# Si aún tiene vidas, volver a la posición inicial
+		set_physics_process(true)
 		position = posicion_inicial
+		# Efecto de parpadeo cuando pierde vida
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "modulate", rojo, 0.2)  # Rojo
+		tween.tween_property(self, "modulate", blanco, 0.2)  # Normal
 
 
 func _physics_process(delta: float) -> void:

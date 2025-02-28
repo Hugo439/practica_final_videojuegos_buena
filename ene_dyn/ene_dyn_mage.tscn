@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://chwhtu0n71wke"]
+
+[ext_resource type="Script" path="res://ene_dyn_mage.gd" id="1_bvfpa"]
+[ext_resource type="Texture2D" uid="uid://ks3560680ffm" path="res://ene_dyn/img/Mage/Walk/walk1.png" id="2_br664"]
+[ext_resource type="Texture2D" uid="uid://crynkycbkawpc" path="res://ene_dyn/img/Mage/Walk/walk2.png" id="3_tcvta"]
+[ext_resource type="Texture2D" uid="uid://dvnotpux087lx" path="res://ene_dyn/img/Mage/Walk/walk3.png" id="4_riiwm"]
+[ext_resource type="Texture2D" uid="uid://4x3gthcghpfv" path="res://ene_dyn/img/Mage/Walk/walk4.png" id="5_j6to0"]
+[ext_resource type="Texture2D" uid="uid://c4vo3ueju667g" path="res://ene_dyn/img/Mage/Walk/walk5.png" id="6_we3mu"]
+[ext_resource type="Texture2D" uid="uid://ctldjr7ikjg15" path="res://ene_dyn/img/Mage/Walk/walk6.png" id="7_mhete"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dxs4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_br664")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tcvta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_riiwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j6to0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_we3mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mhete")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woqpb"]
+size = Vector2(31.5, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3weuc"]
+size = Vector2(47, 55.5)
+
+[node name="ene_dyn_mage" type="CharacterBody2D"]
+script = ExtResource("1_bvfpa")
+
+[node name="ani_ene_dyn" type="AnimatedSprite2D" parent="."]
+position = Vector2(19, -20)
+sprite_frames = SubResource("SpriteFrames_dxs4f")
+animation = &"walk"
+frame_progress = 0.921667
+
+[node name="col_ene_dyn" type="CollisionShape2D" parent="."]
+position = Vector2(0.75, 3)
+shape = SubResource("RectangleShape2D_woqpb")
+
+[node name="ene_area" type="Area2D" parent="."]
+position = Vector2(-1, 1)
+
+[node name="col_ene_dyn_ataque" type="CollisionShape2D" parent="ene_area"]
+position = Vector2(1.5, -1.25)
+shape = SubResource("RectangleShape2D_3weuc")
+
+[node name="detectorIzquierdo" type="RayCast2D" parent="."]
+position = Vector2(-24, 0)
+
+[node name="detectorDerecho" type="RayCast2D" parent="."]
+position = Vector2(24, 0)
+
+[connection signal="body_entered" from="ene_area" to="." method="_on_ene_area_body_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://thf8qbw1bho0"
-path="res://.godot/imported/hurt1.png-e99b1ddc636ee4693388c982de0b1a19.ctex"
+uid="uid://4x3gthcghpfv"
+path="res://.godot/imported/walk4.png-f6a8dfb1fddf773c5a8e4fe993d67670.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/img/Hurt/hurt1.png"
-dest_files=["res://.godot/imported/hurt1.png-e99b1ddc636ee4693388c982de0b1a19.ctex"]
+source_file="res://ene_dyn/img/Mage/Walk/walk4.png"
+dest_files=["res://.godot/imported/walk4.png-f6a8dfb1fddf773c5a8e4fe993d67670.ctex"]
 
 [params]
 
