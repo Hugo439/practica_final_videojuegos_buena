@@ -81,12 +81,15 @@ position = Vector2(1632, 108)
 position = Vector2(1792, 110)
 
 [node name="antorcha5" parent="antorchas" instance=ExtResource("7_74qhc")]
-position = Vector2(3358, 45)
+position = Vector2(3399, 201)
 
 [node name="doors" type="Node2D" parent="."]
 
 [node name="door1" parent="doors" instance=ExtResource("8_sy64o")]
 position = Vector2(1705, 226)
+
+[node name="door2" parent="doors" instance=ExtResource("8_sy64o")]
+position = Vector2(3437, 180)
 
 [node name="bridges" type="Node2D" parent="."]
 
@@ -110,6 +113,9 @@ position = Vector2(-8, 0)
 
 [node name="chest" parent="chest" instance=ExtResource("12_jepa7")]
 position = Vector2(1758, 249)
+
+[node name="chest2" parent="chest" instance=ExtResource("12_jepa7")]
+position = Vector2(3492, 204)
 
 [node name="lavas" type="Node2D" parent="."]
 
