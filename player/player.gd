@@ -121,7 +121,7 @@ func quitar_vida():
 	vidas -= 1
 	if contadores.has("vidas"):
 		contadores["vidas"].actualizar(vidas)
-		# desactivo las físicas
+	# desactivo las físicas
 	set_physics_process(false)
 	ani_player.play("death")
 	audio_muerte.play()
@@ -140,8 +140,6 @@ func control_vidas():
 		fondo_label.visible = true
 		# Configurar el fondo en negro
 		fondo_label.set_color(negro)  # Negro (RGB)
-		# Desactivar el movimiento del jugador
-		set_physics_process(false)
 
 		# Esperar 3 segundos y reiniciar el nivel
 		await get_tree().create_timer(3.0).timeout
