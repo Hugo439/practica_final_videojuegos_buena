@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var jump_force = -700
 @export var air_acceleration = 2500
 @export var air_friction = 1200
-@export var contador_scene: PackedScene # Arrastra la escena "contador.tscn" en el editor
+@export var contador_scene: PackedScene 
 @export var monedas_máximas = 7
 
 @onready var canvas_layer = $CanvasLayer
@@ -16,22 +16,19 @@ extends CharacterBody2D
 @onready var ani_player = $ani_player
 @onready var tiempo = $Timer
 @onready var audio_muerte = $audio_player
-@onready var contador: Control = $CanvasLayer/contador # Referencia al contador
+@onready var contador: Control = $CanvasLayer/contador 
 @onready var posicion_inicial = position  # Guarda la posición de inicio
 
-# Contador de monedas
 var monedas: int = 0
-# Contador de vidas
 var vidas: int = 3
-# Diccionario para manejar múltiples contadores
 var contadores = {}
 # Colores
-var azul: Color = Color(0, 0, 1, 1) # Azul (RGB)
-var blanco: Color = Color(1, 1, 1, 1) # Blanco (RGB)
-var negro: Color = Color(0, 0, 0, 1) # Negro (RGB)
-var rojo: Color = Color(1, 0, 0, 1) # Rojo (RGB)
+var azul: Color = Color(0, 0, 1, 1) 
+var blanco: Color = Color(1, 1, 1, 1) 
+var negro: Color = Color(0, 0, 0, 1) 
+var rojo: Color = Color(1, 0, 0, 1) 
 
-# Agregamos al player al grupo de jugadores
+
 func _ready() -> void:
 	add_to_group("jugadores")
 	# Instanciar diferentes contadores
@@ -82,7 +79,6 @@ func handle_air_acceleration(input_axis, delta):
 
 func update_animation(input_axis):
 	if input_axis !=0:
-		# velocidad de la animación será dependiente de la velocidad
 		ani_player.speed_scale = velocity.length()/100
 		ani_player.flip_h = (input_axis<0)
 		ani_player.play("run")
@@ -103,17 +99,12 @@ func control_monedas():
 	if (monedas == monedas_máximas):
 		label.text = "¡YOU WIN!"
 		label.visible = true
-	   # Cambiar el color del texto del Label a azul
 		label.modulate = blanco
-		# Cambiar el color del fondo a azul
 		fondo_label.visible = true
-		fondo_label.set_color(azul) # Azul (RGB)
-		# Desactivar el movimiento del jugador
+		fondo_label.set_color(azul) 
 		set_physics_process(false)
 
-		# Esperar 3 segundos y reiniciar el nivel
 		await get_tree().create_timer(3.0).timeout
-		# Cargar la escena del menú
 		get_tree().change_scene_to_file("res://menu/menu.tscn") 
 
 # Función para quitar vidas y actualizar el contador correspondiente
@@ -121,7 +112,6 @@ func quitar_vida():
 	vidas -= 1
 	if contadores.has("vidas"):
 		contadores["vidas"].actualizar(vidas)
-	# desactivo las físicas
 	set_physics_process(false)
 	ani_player.play("death")
 	audio_muerte.play()
@@ -135,15 +125,11 @@ func control_vidas():
 	if vidas <= 0:
 		label.text = "¡GAME OVER!"
 		label.visible = true
-		# Cambiar el color del texto del Label a rojo
-		label.modulate = rojo  # Rojo (RGB) 
+		label.modulate = rojo 
 		fondo_label.visible = true
-		# Configurar el fondo en negro
-		fondo_label.set_color(negro)  # Negro (RGB)
+		fondo_label.set_color(negro) 
 
-		# Esperar 3 segundos y reiniciar el nivel
 		await get_tree().create_timer(3.0).timeout
-		# Cargar la escena del menú
 		get_tree().change_scene_to_file("res://menu/menu.tscn")  
 	else:
 		# Si aún tiene vidas, volver a la posición inicial
@@ -151,8 +137,8 @@ func control_vidas():
 		position = posicion_inicial
 		# Efecto de parpadeo cuando pierde vida
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "modulate", rojo, 0.2)  # Rojo
-		tween.tween_property(self, "modulate", blanco, 0.2)  # Normal
+		tween.tween_property(self, "modulate", rojo, 0.2) 
+		tween.tween_property(self, "modulate", blanco, 0.2)  
 
 
 func _physics_process(delta: float) -> void:

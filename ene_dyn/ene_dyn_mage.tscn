@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://chwhtu0n71wke"]
 
-[ext_resource type="Script" path="res://ene_dyn_mage.gd" id="1_bvfpa"]
+[ext_resource type="Script" path="res://ene_dyn/ene_dyn_mage.gd" id="1_bvfpa"]
 [ext_resource type="Texture2D" uid="uid://ks3560680ffm" path="res://ene_dyn/img/Mage/Walk/walk1.png" id="2_br664"]
 [ext_resource type="Texture2D" uid="uid://crynkycbkawpc" path="res://ene_dyn/img/Mage/Walk/walk2.png" id="3_tcvta"]
 [ext_resource type="Texture2D" uid="uid://dvnotpux087lx" path="res://ene_dyn/img/Mage/Walk/walk3.png" id="4_riiwm"]

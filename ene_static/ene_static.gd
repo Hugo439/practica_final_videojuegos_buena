@@ -1,5 +1,5 @@
 extends Area2D
-class_name ene_static  # Define la clase base
+class_name ene_static  
 
 func _ready() -> void:
 	connect("body_entered", Callable(self, "_on_body_entered"))

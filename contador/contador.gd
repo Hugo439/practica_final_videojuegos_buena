@@ -1,6 +1,5 @@
 extends Control
 
-
 @export var image_path: String = ""
 
 @onready var label = $hbox/lbl_contador

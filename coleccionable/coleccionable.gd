@@ -1,12 +1,11 @@
 extends Area2D
 
+@onready var ani_moneda = $ani_moneda
 
 func _ready():
-	# Reproducimos la animación cuando está en nuestro mundo
-	$ani_moneda.play("default")
+	ani_moneda.play("default")
 
 
-# Establecemos que ocurre cuando colisiona la moneda y el jugador.
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("jugadores"):
 		body.add_moneda()
